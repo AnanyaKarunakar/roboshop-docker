@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   default:
     driver: bridge
@@ -46,41 +44,49 @@ services:
       - mysql
       - cart
 
+
 # networks:
-# 	default:
-# 		driver: bridge
-# 		name: roboshop
-# 		#external: true # I created network laready using docker network create roboshop
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     # external: true  # Uncomment only if network is pre-created
+
 # services:
-# 	mongodb:
-# 		image:karna0323/mongodb:v1
-# 		container_name: mongodb
-# 	catalogue:
-# 		image: karna0323/catalogue:v1
-# 		contaoner_name:catalogue
-# 		depends_on:
-# 		- mongodb
-# 	redis:
-# 		image: redis:7.0
-# 		container_name: redis
-# 	user:
-# 		image: karna0323/user:v1
-# 		container_name: user
-# 		depends_on:
-# 		- redis
-# 		- mongodb
-# 	cart:
-# 		image: karna0323/cart:v1
-# 		container_name: cart
-# 		depends_on:
-# 		- catalogue
-# 		- redis
-# 	mysql:
-# 		image: karna0323/mysql:v1
-# 		container_name: mysql
-# 	shipping:
-# 		image: karna0323/shipping:v1
-# 		container_name: shipping
-# 		depends_on:
-# 		- mysql
-# 		- cart
+#   mongodb:
+#     image: karna0323/mongodb:v1
+#     container_name: mongodb
+
+#   catalogue:
+#     image: karna0323/catalogue:v1
+#     container_name: catalogue  
+#     depends_on:
+#       - mongodb
+
+#   redis:
+#     image: redis:7.0
+#     container_name: redis
+
+#   user:
+#     image: karna0323/user:v1
+#     container_name: user
+#     depends_on:
+#       - redis
+#       - mongodb
+
+#   cart:
+#     image: karna0323/cart:v1
+#     container_name: cart
+#     depends_on:
+#       - catalogue
+#       - redis
+
+#   mysql:
+#     image: karna0323/mysql:v1
+#     container_name: mysql
+
+#   shipping:
+#     image: karna0323/shipping:v1
+#     container_name: shipping
+#     depends_on:
+#       - mysql
+#       - cart
