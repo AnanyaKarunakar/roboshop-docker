@@ -2,7 +2,7 @@ networks:
   default:
     driver: bridge
     name: roboshop
-    # external: true  # Uncomment only if the 'roboshop' network already exists
+    external: true  # Uncomment only if the 'roboshop' network already exists
 
 services:
   mongodb:
