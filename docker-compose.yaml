@@ -4,10 +4,17 @@ networks:
     name: roboshop
     external: true  # Uncomment only if network is pre-created
 
+volumes:
+  mongodb: #This is equal to docker volume create mogodb
+  redis:
+  mysql:
+  rabbitmq: #This is equal to docker volume create rabbitmq
 services:
   mongodb:
     image: karna0323/mongodb:v1
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db
 
   catalogue:
     image: karna0323/catalogue:v1
@@ -18,6 +25,8 @@ services:
   redis:
     image: redis:7.0
     container_name: redis
+    volumes:
+    - redis:/data
 
   user:
     image: karna0323/user:v1
@@ -36,6 +45,8 @@ services:
   mysql:
     image: karna0323/mysql:v1
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
 
   shipping:
     image: karna0323/shipping:v1
@@ -50,7 +61,8 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
-
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq
 
   payment:
     image: karna0323/payment:v1
